@@ -10,7 +10,8 @@ This app was developed using React, and styled using CSS module. It performs var
 
 ### Dependencies
 
-React and NPM (Node Package Manager)
+* NPM (Node Package Manager)
+* React
 
 ### Installing
 
