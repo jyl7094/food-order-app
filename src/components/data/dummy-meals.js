@@ -1,4 +1,4 @@
-export const DUMMY_MEALS = [
+const DUMMY_MEALS = [
   {
     id: 'm1',
     name: 'Sushi',
@@ -24,3 +24,5 @@ export const DUMMY_MEALS = [
     price: 18.99,
   },
 ];
+
+export { DUMMY_MEALS as default };
