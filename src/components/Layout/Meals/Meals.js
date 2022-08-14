@@ -4,10 +4,10 @@ import AvailableMeals from './AvailableMeals';
 
 const Meals = () => {
   return (
-    <>
+    <main>
       <MealsSummary />
       <AvailableMeals />
-    </>
+    </main>
   );
 };
 
