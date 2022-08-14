@@ -1,15 +1,17 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import styles from './Modal.module.css';
 
-const ModalOverlay = (props) => {
-  return (
-    <div className={classes.modal}>
-      <div className={classes.content}>{props.children}</div>
-    </div>
+const Modal = (props) => {
+  return ReactDOM.createPortal(
+    <>
+      <div className={styles.backdrop} onClick={props.onClose} />
+      <div className={styles.modal}>
+        <div className={styles.content}>{props.children}</div>
+      </div>
+    </>,
+    document.getElementById('modal-root')
   );
-};
-
-const Modal = () => {
-  return {/* do reactdom portal magic to return modal overlay */}
 };
 
 export default Modal;

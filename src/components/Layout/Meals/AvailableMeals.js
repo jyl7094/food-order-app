@@ -1,7 +1,8 @@
 import React from 'react';
+
 import Card from '../../UI/Card';
 import MealItem from './MealItem';
-import DUMMY_MEALS from '../../data/dummy-meals';
+import DUMMY_MEALS from '../../../data/dummy-meals';
 import styles from './AvailableMeals.module.css';
 
 const AvailableMeal = () => {
@@ -11,7 +12,15 @@ const AvailableMeal = () => {
         <ul>
           {/* map to <mealitem> */}
           {DUMMY_MEALS.map((meal) => {
-            return <MealItem id={meal.id} meal={meal} />;
+            return (
+              <MealItem
+                key={meal.id}
+                id={meal.id}
+                name={meal.name}
+                description={meal.description}
+                price={meal.price}
+              />
+            );
           })}
         </ul>
       </Card>
