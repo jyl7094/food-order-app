@@ -6,12 +6,12 @@ import styles from './Header.module.css';
 const Header = () => {
   return (
     <>
-      <div className={styles.header}>
+      <header className={styles.header}>
         <h1>ReactMeals</h1>
         <HeaderCartButton />
-      </div>
+      </header>
       <div className={styles['main-image']}>
-        <img src={mealsImage} alt="A table full of festival foods"/>
+        <img src={mealsImage} alt='A table full of festival foods' />
       </div>
     </>
   );
