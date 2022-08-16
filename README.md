@@ -1,5 +1,6 @@
 # Food Order App
 
+
 ![An image of the app](./src/assets/images/ReactMeals.png)
 A simple demonstration of an online order form for a restaurant.
 
