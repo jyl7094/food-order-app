@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import Input from '../../UI/Input';
 import styles from './MealItemForm.module.css';
 
 const MealItemForm = (props) => {
+  const amount = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.onAdd(amount.current.value);
+  };
+
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <Input
         label='Amount'
+        ref={amount}
         input={{
           id: 'amount_' + props.id,
           type: 'number',
@@ -16,7 +24,7 @@ const MealItemForm = (props) => {
           defaultValue: '1',
         }}
       />
-      <button type='button'>+ Add</button>
+      <button>+ Add</button>
     </form>
   );
 };
