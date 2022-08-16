@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import CartProvider from './context/CartProvider';
 import Cart from './components/Layout/Cart/Cart';
 import Header from './components/Layout/Header/Header';

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 import CartContext from '../../../context/cart-context';
 import Modal from '../../UI/Modal';
@@ -7,9 +7,11 @@ import styles from './Cart.module.css';
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
+  const [showButton, setShowButton] = useState(false);
 
-  const showButton = Boolean(cartCtx.totalAmount);
-  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  // const showButton = Boolean(Number(cartCtx.totalAmount));
+  const { items } = cartCtx;
+  const totalAmount = `$${Math.abs(cartCtx.totalAmount).toFixed(2)}`;
 
   const handleAdd = (item) => {
     cartCtx.addItem(item);
@@ -18,6 +20,14 @@ const Cart = (props) => {
   const handleRemove = (id) => {
     cartCtx.removeItem(id);
   };
+
+  useEffect(() => {
+    if (items.length === 0) {
+      setShowButton(false);
+    } else {
+      setShowButton(true);
+    }
+  }, [items]);
 
   return (
     <Modal onClose={props.onClose}>
@@ -48,7 +58,16 @@ const Cart = (props) => {
         <button className={styles['button--alt']} onClick={props.onClose}>
           Close
         </button>
-        {showButton && <button className={styles.button}>Order</button>}
+        {showButton && (
+          <button
+            className={styles.button}
+            onClick={() => {
+              console.log('Ordering...');
+            }}
+          >
+            Order
+          </button>
+        )}
       </div>
     </Modal>
   );
