@@ -30,7 +30,6 @@ const reducer = (state, action) => {
           ...state.items[exist],
           amount: Number(existingItem.amount) + Number(item.amount),
         };
-        // existingItem.amount = Number(existingItem.amount) + Number(item.amount);
       }
       updatedTotalAmount = state.totalAmount + item.price * item.amount;
       return {
@@ -46,7 +45,6 @@ const reducer = (state, action) => {
           break;
         }
       }
-      // state.items[idx].amount -= 1;
       const itemToRemove = state.items[idx];
       let decreasedTotalAmount = state.totalAmount - itemToRemove.price;
       let decreasedItem;
