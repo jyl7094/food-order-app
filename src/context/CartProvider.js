@@ -12,10 +12,10 @@ const reducer = (state, action) => {
     case 'Add':
       let item = action.item;
       let updatedAmount;
-      let updatedItems;
+      let updatedItems = state.items;
       let exist = -1;
       for (let i = 0; i < state.items.length; i++) {
-        if (state.items.id === item.id) {
+        if (state.items[i].id === item.id) {
           exist = i;
           break;
         }
@@ -24,7 +24,7 @@ const reducer = (state, action) => {
         updatedItems = state.items.concat(item);
       } else {
         const existingItem = state.items[exist];
-        existingItem.amount += item.amount;
+        existingItem.amount = Number(existingItem.amount) + Number(item.amount);
       }
       updatedAmount = state.totalAmount + item.price * item.amount;
       return {
